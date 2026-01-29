@@ -79,8 +79,15 @@ function createBot() {
       });
    }
 
-   bot.once('spawn', () => {
-      console.log('\x1b[33m[AfkBot] Bot joined the server', '\x1b[0m');
+  bot.once('spawn', () => {
+  console.log('البوت دخل السيرفر');
+
+  // حركة لمنع الطرد (قفز كل فترة)
+  setInterval(() => {
+    bot.setControlState('jump', true);
+    setTimeout(() => bot.setControlState('jump', false), 500);
+  }, 20000);
+});
 
       if (config.utils['auto-auth'].enabled) {
          console.log('[INFO] Started auto-auth module');
