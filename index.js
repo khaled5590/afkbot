@@ -78,10 +78,8 @@ function createBot() {
          });
       });
    }
-
   bot.once('spawn', () => {
   console.log('البوت دخل السيرفر');
-
   // حركة لمنع الطرد (قفز كل فترة)
   setInterval(() => {
     bot.setControlState('jump', true);
